@@ -75,4 +75,11 @@ export class EmployeeRepository implements IEmployeeRepository {
     const deletedEmployee: Employee = employeeResponse.rows[0];
     return deletedEmployee;
   }
+
+  async findAll(): Promise<Employee[]> {
+    const { rows: employees } = await query(
+      'SELECT cpf, name, dtNasc, admin, role FROM employees;'
+    );
+    return employees;
+  }
 }
