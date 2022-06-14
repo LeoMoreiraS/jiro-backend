@@ -2,6 +2,7 @@ import { query } from '@shared/infra/database/connection';
 
 import { Employee } from '@employee/domain/entities/employee';
 import { CreateEmployeeDTO } from '@employee/domain/repositories/dtos/create-employee-dto';
+import { DeleteEmployeeDTO } from '@employee/domain/repositories/dtos/delete-employee-dto';
 import { UpdateEmployeeDTO } from '@employee/domain/repositories/dtos/update-employee-dto';
 import { IEmployeeRepository } from '@employee/domain/repositories/employee-repository';
 
@@ -64,15 +65,14 @@ export class EmployeeRepository implements IEmployeeRepository {
     return findEmployee;
   }
 
-  // async delete({ email }: DeleteEmployeeDTO.Params): Promise<Employee> {
-  //   const employeeResponse = await query(`
-  //     DELETE FROM employees
-  //     WHERE email = '${email}'
-  //     RETURNING email, name, bio, nickname, githubAccount;
-  //   `);
+  async delete({ cpf }: DeleteEmployeeDTO.Params): Promise<Employee> {
+    const employeeResponse = await query(`
+      DELETE FROM employees
+      WHERE cpf = '${cpf}'
+      RETURNING cpf, name, dtNasc, admin, role;
+    `);
 
-  //   const deletedEmployee: Employee = employeeResponse.rows[0];
-
-  //   return deletedEmployee;
-  // }
+    const deletedEmployee: Employee = employeeResponse.rows[0];
+    return deletedEmployee;
+  }
 }
