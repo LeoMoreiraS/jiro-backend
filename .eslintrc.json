@@ -51,7 +51,8 @@
             "groups": [
                 "module", 
                 "/^@shared/", 
-                "/^@employee/", 
+                "/^@employee/",
+                "/^@sprint/",
                 ["parent", "sibling", "index"]
             ],
             "alphabetize": { "order": "asc", "ignoreCase": true }

@@ -8,6 +8,7 @@
     "outDir": "./dist",
     "paths": {
       "@employee/*": ["modules/employee/*"],
+      "@sprint/*": ["modules/sprint/*"],
       "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
