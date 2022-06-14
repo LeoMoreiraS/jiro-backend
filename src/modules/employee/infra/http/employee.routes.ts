@@ -15,9 +15,6 @@ const createEmployeeController = new CreateEmployeeController();
 const authenticateEmployeeController = new AuthenticateEmployeeController();
 const updateEmployeeController = new UpdateEmployeeController();
 const deleteEmployeeController = new DeleteEmployeeController();
-// const getEmployeeInfoController = new GetEmployeeInfoController();
-// const findEmployeeController = new SearchEmployeesController();
-// const findEmployeeProfileController = new FindEmployeeProfileController();
 
 employeeRoutes.post('/login', authenticateEmployeeController.handle);
 
@@ -29,12 +26,5 @@ employeeRoutes.delete(
 );
 
 employeeRoutes.put('/', authorizationMiddleware.verifyUserToken, updateEmployeeController.handle);
-// employeeRoutes.get('/', authorizationMiddleware.verifyUserToken, getEmployeeInfoController.handle);
-// employeeRoutes.get('/search', authorizationMiddleware.verifyUserToken, findEmployeeController.handle);
-// employeeRoutes.get(
-//   '/profile',
-//   authorizationMiddleware.verifyUserToken,
-//   findEmployeeProfileController.handle
-// );
 
 export { employeeRoutes };
