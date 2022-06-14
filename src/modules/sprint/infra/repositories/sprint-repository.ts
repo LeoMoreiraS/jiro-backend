@@ -16,4 +16,9 @@ export class SprintRepository implements ISprintRepository {
 
     return createdSprint;
   }
+
+  async findAll(): Promise<Sprint[]> {
+    const { rows: sprints } = await query('SELECT * FROM sprints;');
+    return sprints;
+  }
 }
