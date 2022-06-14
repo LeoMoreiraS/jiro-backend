@@ -59,4 +59,15 @@ export class SprintRepository implements ISprintRepository {
     const findSprint = queryResponse.length > 0 ? queryResponse[0] : null;
     return findSprint;
   }
+
+  async delete(id: number): Promise<Sprint | null> {
+    const queryResponse = await query(`
+      DELETE FROM sprints
+      WHERE id = '${id}'
+      RETURNING id, name, description, startDate, endDate;
+    `);
+
+    const deletedSprint: Sprint = queryResponse.rows[0];
+    return deletedSprint;
+  }
 }
