@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
-import { BcryptEncrypterAdapter } from 'modules/employee/infra/adapters/bcrypt-encrypter-adapter';
 
 import { CreateEmployeeUseCase } from '@employee/domain/useCases/create-employee-use-case';
+import { BcryptEncrypterAdapter } from '@employee/infra/adapters/bcrypt-encrypter-adapter';
 import { EmployeeRepository } from '@employee/infra/repositories/employee-repository';
 
 export class CreateEmployeeController {
