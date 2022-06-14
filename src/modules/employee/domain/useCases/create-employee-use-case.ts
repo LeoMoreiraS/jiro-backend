@@ -10,7 +10,7 @@ export namespace CreateEmployeeUseCaseDTO {
     name: string;
     password: string;
     dtNasc: Date;
-    admin: boolean;
+    admin?: boolean;
     role: string;
   };
 
@@ -31,7 +31,7 @@ export class CreateEmployeeUseCase {
     admin,
     role,
   }: CreateEmployeeUseCaseDTO.Params): Promise<CreateEmployeeUseCaseDTO.Result> {
-    if (!cpf || !name || !password || !dtNasc || !admin || !role) {
+    if (!cpf || !name || !password || !dtNasc || !role) {
       throw new AppError('Missing params');
     }
 
@@ -48,7 +48,7 @@ export class CreateEmployeeUseCase {
       name,
       password: encryptedPassword,
       dtNasc,
-      admin,
+      admin: admin ?? false,
       role,
     });
 
