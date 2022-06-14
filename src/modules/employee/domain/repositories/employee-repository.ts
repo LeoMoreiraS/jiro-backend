@@ -7,5 +7,6 @@ export interface IEmployeeRepository {
   create(params: CreateEmployeeDTO.Params): Promise<CreateEmployeeDTO.Result>;
   update(params: UpdateEmployeeDTO.Params): Promise<UpdateEmployeeDTO.Result>;
   delete(params: DeleteEmployeeDTO.Params): Promise<DeleteEmployeeDTO.Result>;
+  findAll(): Promise<Employee[]>;
   findByCpf(cpf: string): Promise<Employee | null>;
 }
