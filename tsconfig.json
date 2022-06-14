@@ -1,17 +1,13 @@
 {
   "compilerOptions": {
     "target": "es2020",
-    "module": "ES2020",
+    "module": "commonjs",
     "moduleResolution": "node",
     "rootDir": "./",
     "baseUrl": "./src",
     "outDir": "./dist",
     "paths": {
       "@user/*": ["modules/user/*"],
-      "@post/*": ["modules/post/*"],
-      "@specialty/*": ["modules/specialty/*"],
-      "@follow/*": ["modules/follow/*"],
-      "@message/*": ["modules/message/*"],
       "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
