@@ -11,4 +11,12 @@ export const migrations = `
   INSERT INTO employees (cpf, name, password, dtNasc, admin, role) 
   SELECT 'admin', 'admin', '$2a$12$okqCGvt1iglepFnMg/9zJud8itKI6PumqVmF2WpFmpxVP68gVXwr6', '01-01-0001', 'true', 'System admin'
   WHERE NOT EXISTS (SELECT * FROM employees WHERE cpf = 'admin');
+
+  CREATE TABLE IF NOT EXISTS sprints (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL
+  );
 `;
