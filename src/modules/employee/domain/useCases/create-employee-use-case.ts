@@ -32,13 +32,13 @@ export class CreateEmployeeUseCase {
     role,
   }: CreateEmployeeUseCaseDTO.Params): Promise<CreateEmployeeUseCaseDTO.Result> {
     if (!cpf || !name || !password || !dtNasc || !role) {
-      throw new AppError('Missing params');
+      throw new AppError('Faltam parâmetros');
     }
 
     const cpfAlreadyExists = await this.employeeRepository.findByCpf(cpf);
 
     if (cpfAlreadyExists) {
-      throw new AppError(`Cpf '${cpf}' already exists`);
+      throw new AppError(`Cpf '${cpf}' já existe`);
     }
 
     const encryptedPassword = await this.encrypterAdapter.encrypt(password);

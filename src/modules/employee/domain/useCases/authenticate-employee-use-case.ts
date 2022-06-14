@@ -27,13 +27,13 @@ export class AuthenticateEmployeeUseCase {
     password,
   }: AuthenticateEmployeeUseCaseDTO.Params): Promise<AuthenticateEmployeeUseCaseDTO.Result> {
     if (!cpf || !password) {
-      throw new AppError('Missing params');
+      throw new AppError('Faltam parâmetros');
     }
 
     const employee = await this.employeeRepository.findByCpf(cpf);
 
     if (!employee) {
-      throw new AppError('Wrong credentials');
+      throw new AppError('Credenciais inválidas');
     }
 
     const isPasswordValid = await this.encrypterAdapter.comparePassword({
@@ -42,7 +42,7 @@ export class AuthenticateEmployeeUseCase {
     });
 
     if (!isPasswordValid) {
-      throw new AppError('Wrong credentials');
+      throw new AppError('Credenciais inválidas');
     }
 
     const { token } = await this.authenticatorAdapter.createToken({
