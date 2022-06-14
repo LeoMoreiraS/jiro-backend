@@ -10,6 +10,6 @@ export class ListEmployeesController {
 
     const result = await listEmployeesUseCase.execute();
 
-    return response.status(201).json(result);
+    return response.status(200).json(result);
   }
 }
