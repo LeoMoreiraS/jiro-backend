@@ -10,7 +10,7 @@ export class AuthorizationMiddleware {
     const { token } = request.headers;
 
     if (!token) {
-      throw new UnauthorizedError('Token is required');
+      throw new UnauthorizedError('O token é obrigatório');
     }
 
     const { decodedToken } = await authenticatorAdapter.verifyToken({
@@ -27,7 +27,7 @@ export class AuthorizationMiddleware {
     const { token } = request.headers;
 
     if (!token) {
-      throw new UnauthorizedError('Token is required');
+      throw new UnauthorizedError('O token é obrigatório');
     }
 
     const { decodedToken } = await authenticatorAdapter.verifyToken({
@@ -35,7 +35,7 @@ export class AuthorizationMiddleware {
     });
 
     if (!decodedToken.admin) {
-      throw new UnauthorizedError('User is not admin');
+      throw new UnauthorizedError('Usuário não é admin');
     }
 
     response.locals.decodedToken = decodedToken;
