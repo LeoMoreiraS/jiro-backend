@@ -38,4 +38,16 @@ export const migrations = `
     FOREIGN KEY (story_id) REFERENCES stories (id) ON DELETE CASCADE ON UPDATE CASCADE
   );
 
+  CREATE TABLE IF NOT EXISTS tasks (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    status VARCHAR(255),
+    scope VARCHAR(255),
+    employee_cpf VARCHAR(255) NOT NULL,
+    story_id INTEGER NOT NULL,
+    priority INTEGER,
+    description VARCHAR(255),
+    FOREIGN KEY (story_id) REFERENCES stories (id) ON DELETE SET NULL ON UPDATE CASCADE,
+    FOREIGN KEY (employee_cpf) REFERENCES employees (cpf) ON DELETE SET NULL ON UPDATE CASCADE
+  );
 `;
