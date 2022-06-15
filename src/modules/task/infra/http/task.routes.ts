@@ -17,9 +17,9 @@ const updateTaskController = new UpdateTaskController();
 const deleteTaskController = new DeleteTaskController();
 
 taskRoutes.post('/', authorizationMiddleware.verifyAdminToken, createTaskController.handle);
-taskRoutes.put('/', authorizationMiddleware.verifyAdminToken, updateTaskController.handle);
 taskRoutes.delete('/', authorizationMiddleware.verifyAdminToken, deleteTaskController.handle);
 
+taskRoutes.put('/', authorizationMiddleware.verifyUserToken, updateTaskController.handle);
 taskRoutes.get('/', authorizationMiddleware.verifyUserToken, listTaskController.handle);
 
 export { taskRoutes };
