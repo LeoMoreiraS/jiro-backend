@@ -47,7 +47,10 @@ export class AuthenticateEmployeeUseCase {
 
     const { token } = await this.authenticatorAdapter.createToken({
       payload: {
+        name: employee.name,
         cpf: employee.cpf,
+        role: employee.role,
+        dtNasc: employee.dtNasc,
         admin: employee.admin,
       },
     });
