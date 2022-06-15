@@ -19,4 +19,23 @@ export const migrations = `
     startDate DATE NOT NULL,
     endDate DATE NOT NULL
   );
+
+
+  CREATE TABLE IF NOT EXISTS stories (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    status VARCHAR(255) NOT NULL,
+    bdd VARCHAR(255) NOT NULL,
+    sprint_id INTEGER NOT NULL,
+    acceptanceCriteria VARCHAR(255) NOT NULL,
+    FOREIGN KEY (sprint_id) REFERENCES sprints (id) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+
+  CREATE TABLE IF NOT EXISTS bussiness_Rules (
+    rule VARCHAR(255) NOT NULL,
+    story_id INTEGER NOT NULL,
+    PRIMARY KEY (story_id, rule),
+    FOREIGN KEY (story_id) REFERENCES stories (id) ON DELETE CASCADE ON UPDATE CASCADE
+  );
+
 `;

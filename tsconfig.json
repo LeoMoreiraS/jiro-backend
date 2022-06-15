@@ -9,6 +9,7 @@
     "paths": {
       "@employee/*": ["modules/employee/*"],
       "@sprint/*": ["modules/sprint/*"],
+      "@story/*": ["modules/story/*"],
       "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
