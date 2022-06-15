@@ -1,9 +1,9 @@
 import { Response, Request } from 'express';
-import { BcryptEncrypterAdapter } from 'modules/employee/infra/adapters/bcrypt-encrypter-adapter';
 
 import { JwtAuthenticatorAdapter } from '@shared/infra/adapters/jwt-authenticator-adapter';
 
 import { AuthenticateEmployeeUseCase } from '@employee/domain/useCases/authenticate-employee-use-case';
+import { BcryptEncrypterAdapter } from '@employee/infra/adapters/bcrypt-encrypter-adapter';
 import { EmployeeRepository } from '@employee/infra/repositories/employee-repository';
 
 export class AuthenticateEmployeeController {
