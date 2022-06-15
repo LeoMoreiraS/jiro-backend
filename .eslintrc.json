@@ -54,6 +54,7 @@
                 "/^@employee/",
                 "/^@sprint/",
                 "/^@story/",
+                "/^@task/",
                 ["parent", "sibling", "index"]
             ],
             "alphabetize": { "order": "asc", "ignoreCase": true }

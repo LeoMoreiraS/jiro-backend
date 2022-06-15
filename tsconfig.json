@@ -10,6 +10,7 @@
       "@employee/*": ["modules/employee/*"],
       "@sprint/*": ["modules/sprint/*"],
       "@story/*": ["modules/story/*"],
+      "@task/*": ["modules/task/*"],
       "@shared/*": ["shared/*"]
     },
     "esModuleInterop": true,
